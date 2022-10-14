@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { filter, interval, map, mergeMap, Observable, of, take, tap } from 'rxjs';
 import { FaceSnap } from './models/face-snap.model';
 
 @Component({
@@ -11,53 +12,46 @@ export class AppComponent implements OnInit{
    myOtherSnap!: FaceSnap;
    myLastSnap!:FaceSnap;
    faceSnaps!: FaceSnap[];
+   interval$!: Observable<string>;
 
 
   ngOnInit() {
     
-   /* this.mySnap= new FaceSnap('Laura',
-    'Ma meilleure amie depuis tout petit !',
-    'https://cdn.pixabay.com/photo/2015/05/31/16/03/teddy-bear-792273_1280.jpg',
-    new Date(),
-    0);
+   
+/* this.interval$=interval(3000).pipe(
+      filter(value=> value  % 2 === 0),
+      map(value=> value % 3=== 0 ?
+        `Je suis ${value} et je suis divisible par 3` :
+        `Je suis ${value} et je ne suis pas divisible par 3`
+        ),
+        tap(text=> this.logger(text))
 
-    this.mySnap1= new FaceSnap('Michèle',
-    'Mon premier voyage',
-    'image/voyage.jpg',
-    new Date(),
-    0);*/
+    ); */
 
-  /*  this.faceSnaps=[ {
-      title: 'Archibald',
-      description: 'Mon meilleur ami depuis tout petit !',
-      imageUrl: 'https://cdn.pixabay.com/photo/2015/05/31/16/03/teddy-bear-792273_1280.jpg',
-      createdDate: new Date(),
-      snaps: 200,
-      location:'paris' 
-    },
+/* 
+    this.getTrainObservable$.pipe(map(
+      value=> value ==='rouge' ?
+      `Je suis un train ${value} ` :
+      `Je suis un train ${value}  ` 
+    )); */
 
-   {
-      title: 'Three Rock Mountain',
-      description: 'Un endroit magnifique pour les randonnées.',
-      imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Three_Rock_Mountain_Southern_Tor.jpg/2880px-Three_Rock_Mountain_Southern_Tor.jpg',
-      createdDate: new Date(),
-      snaps: 0,
-      location:'alpes' 
-    },
 
- {
-      title: 'Un bon repas',
-      description: 'Mmmh que c\'est bon !',
-      imageUrl: 'https://wtop.com/wp-content/uploads/2020/06/HEALTHYFRESH.jpg',
-      createdDate: new Date(),
-      snaps: 0
-    },
 
-  ] */
-    
-  }
+
 
 
 
 
 }
+  logger(text: string): void {
+    //throw ('Method not implemented.');
+    console.log(`Log: ${text}`);
+  }
+
+}
+function logger(Text: { new(data?: string | undefined): Text; prototype: Text; }, string: any) {
+  throw new Error('Function not implemented.');
+}
+
+
+

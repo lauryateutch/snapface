@@ -15,6 +15,7 @@ imageUrl!: string;
 createdDate!: Date;
 snaps!: number;
 location?: string;
+    static snaps: number;
 
 
 }
