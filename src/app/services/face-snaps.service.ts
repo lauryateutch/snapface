@@ -74,6 +74,10 @@ export class FaceSnapsService{
     }
 
 
+
+    
+
+
     addFacesnap(formvalue:{title:string,description: string,imageUrl:string,location?: string}):Observable<FaceSnap>{
         console.log(formvalue);
             return this.getAllFaceSnaps().pipe(
